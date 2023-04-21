@@ -2,12 +2,13 @@ function Footer() {
   return (
     <footer className="py-16 bg-neutral-100">
         <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 "> */}
+            <div className="text-center text-sm mt-10">
                 <div className="lg:col-span-1">
                     <div>© 2023 Gear3S. Tất cả các quyền được bảo lưu.</div>
                 </div>
                 <div className="lg:col-span-2">
-                    <div>Quốc gia & Khu vực: Việt Nam Hà Nội Thành phố Hồ Chí Minh </div>
+                    <div>Quốc gia & Khu vực: Việt Nam - Hà Nội - Đà Nẵng - Hồ Chí Minh </div>
                 </div>
             </div>
             <div className="text-center text-sm mt-10">

@@ -10,7 +10,7 @@ interface Props {
     placement?: Placement
 }
 export default function Popover({children, className, renderPopover, as: Element = 'div', placement = 'bottom-end'}: Props) {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(null);
     const arrowRef = useRef<HTMLElement>(null)
     const { x, y, reference, floating, strategy , middlewareData } = useFloating({
       middleware: [offset(), shift(), arrow({element: arrowRef})],

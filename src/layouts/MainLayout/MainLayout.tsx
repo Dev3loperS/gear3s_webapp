@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom'
 import Footer from 'src/components/Footer'
 import Header from 'src/components/Header'
 interface Props {
@@ -8,6 +9,7 @@ export default function MainLayout({children} : Props) {
         <div>
           <Header />
             {children}
+            <Outlet />
           <Footer />
         </div>
     )

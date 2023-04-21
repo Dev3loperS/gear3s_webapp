@@ -1,7 +1,6 @@
 import type { RegisterOptions, UseFormGetValues } from 'react-hook-form'
 import * as yup from 'yup'
 // import { AnyObject } from 'yup/lib/types'
-
 type Rules = { [key in 'email' | 'password' | 'confirm_password']?: RegisterOptions }
 
 export const getRules = (getValues?: UseFormGetValues<any>): Rules => ({

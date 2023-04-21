@@ -6,10 +6,13 @@ import { QueryConfig } from 'src/hooks/useQueryConfig'
 import { Category } from 'src/types/category.type'
 import { NoUndefinedField } from 'src/types/utils.type';
 import { Schema, schema } from 'src/utils/rules'
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 import { omit } from 'lodash';
+import InputNumber from 'src/components/InputNumber';
+import RatingStars from '../RatingStars/RatingStars';
+import InputV2 from 'src/components/InputV2';
 
 interface Props {
   queryConfig: QueryConfig
@@ -20,7 +23,6 @@ type FormData = NoUndefinedField<Pick<Schema, 'price_max' | 'price_min'>>
 const priceSchema = schema.pick(['price_min', 'price_max'])
 
 export default function AsideFilter({ queryConfig, categories }: Props) {
-  // const { t } = useTranslation('home')
   const { category } = queryConfig
   const {
     control,
@@ -151,9 +153,21 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   />
                 )
               }}
-            /> */}
+            />  */}
+            <InputV2 
+              control={control}
+              name="price_min"
+              type='number'
+              className='grow'
+              placeholder='₫ TỪ'
+              classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
+              classNameError='hidden'
+              onChange={(event) => {
+                trigger('price_max')
+              }}
+            />
             <div className='mx-2 mt-2 shrink-0'>-</div>
-            {/* <Controller
+            <Controller
               control={control}
               name='price_max'
               render={({ field }) => {
@@ -172,7 +186,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   />
                 )
               }}
-            /> */}
+            />
           </div>
           <div className='mt-1 min-h-[1.25rem] text-center text-sm text-red-600'>{errors.price_min?.message}</div>
           <Button className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'>
@@ -182,7 +196,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
       </div>
       <div className='my-4 h-[1px] bg-gray-300' />
       <div className='text-sm'>Đánh giá</div>
-      {/* <RatingStars queryConfig={queryConfig} /> */}
+        <RatingStars  queryConfig={queryConfig}/>
       <div className='my-4 h-[1px] bg-gray-300' />
       <Button
         onClick={handleRemoveAll}

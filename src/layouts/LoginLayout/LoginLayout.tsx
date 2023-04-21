@@ -8,7 +8,7 @@ export default function LoginLayout({ children }: Props) {
   return (
     <div>
       <LoginHeader />
-      {children}
+        {children}
       <Footer />
     </div>
   )
