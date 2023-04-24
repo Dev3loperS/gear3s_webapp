@@ -13,7 +13,11 @@ import purchaseApi from "src/apis/purchase.api"
 import { toast } from "react-toastify"
 import { purchasesStatus } from "src/constants/purchase"
 import path from "src/constants/path"
+import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
+
 export default function ProductDetail() {
+    const { t } = useTranslation(['product'])
     const queryClient = useQueryClient()
     const [buyCount, setBuyCount] = useState(1)
     const {nameId} = useParams()
@@ -108,6 +112,9 @@ export default function ProductDetail() {
     }
     return (
         <div className="bg-gray-200 py-6">
+            <Helmet>
+                <title>{product.name} | Gear3S</title>
+            </Helmet>
             <div className="container">
                 <div className="bg-white p-4 shadow">
                     <div className="grid grid-cols-12 gap-9">
